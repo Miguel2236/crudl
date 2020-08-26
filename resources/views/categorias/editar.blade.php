@@ -6,7 +6,7 @@
 			<div class="col-sm">
 		    </div>
 		    <div class="col-sm">
-		    	<h1>Página de Inicio</h1>
+		    	<h1>Editar Categoria</h1>
 		    </div>
 		    <div class="col-sm">
 		    </div>
@@ -15,8 +15,8 @@
 			<div class="col-3"></div>
 			<div class="col-6">
                 <form action="{{ route('categorias.update', $cat->id) }}" method="POST">
-                    {{method_field('PUT')}}
-					{{csrf_field()}}
+					@csrf
+					@method('PUT')
 					<div class="row">
 						<div class="col-12">
 						    <label for="name">Nombre</label>

@@ -23,7 +23,7 @@
 						</div>
 						<div class="col-6">
 						    <label for="precio">Precio</label>
-						    <input type="text" class="form-control" name="precio" id="precio" placeholder="Precio">
+						    <input type="text" class="form-control" name="precio" id="precio" placeholder="Precio" autocomplete="off">
 						</div>
 					</div>
 					<div class="row">

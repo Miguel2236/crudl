@@ -31,9 +31,12 @@
 									<td>{{ $cat->name }}</td>
 									<td>{{ $cat->description }}</td>
 									<td>
-										<a href="{{ route('categorias.edit',['id' => $cat->id]) }}" class="btn btn-info">Edit</a>
-										<button class="btn btn-outline-success" title="Nuevo">+</button>
-										<button class="btn btn-outline-danger" title="Eliminar">-</button>
+										<a href="{{ route('categorias.edit',['id' => $cat->id]) }}" class="btn btn-light"><i class="fas fa-pencil-alt"></i></a>
+										<form method="POST" action="{{ route('categorias.delete', $cat->id) }}">
+											@csrf
+											@method('DELETE')
+											<button type="sumbit" class="btn btn-light"><i class="far fa-trash-alt"></i></button>
+										</form>
 									</td>
 								</tr>
 							@endforeach

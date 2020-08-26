@@ -2,17 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', ['as' => 'home', 'uses' => 'CrudController@index']);
 
 // articulos
@@ -43,4 +32,6 @@ Route::get('categorias/{id}', ['as' => 'categorias.info', 'uses' => 'CatControll
 Route::get('categorias/{id}', ['as' => 'categorias.edit', 'uses' => 'CatController@edit']);
 
 Route::put('categorias/{id}', ['as' => 'categorias.update', 'uses' => 'CatController@update']);
+
+Route::delete('categorias/{id}', ['as' => 'categorias.delete', 'uses' => 'CatController@destroy']);
 

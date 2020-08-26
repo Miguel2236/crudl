@@ -6,7 +6,7 @@
 			<div class="col-sm">
 		    </div>
 		    <div class="col-sm">
-		    	<h1>Página de Inicio</h1>
+		    	<h1>Nueva categoria</h1>
 		    </div>
 		    <div class="col-sm">
 		    </div>
@@ -15,7 +15,7 @@
 			<div class="col-3"></div>
 			<div class="col-6">
 				<form action="{{ route('categorias.store') }}" method="POST">
-					{{csrf_field()}}
+					@csrf
 					<div class="row">
 						<div class="col-12">
 						    <label for="name">Nombre</label>

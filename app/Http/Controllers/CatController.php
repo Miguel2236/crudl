@@ -96,6 +96,8 @@ class CatController extends Controller
             "description" => $request->input('description'),
             "updated_at" => Carbon::now(),
         ]);
+
+        return redirect()->route('categorias.listar');
     }
 
     /**
@@ -106,6 +108,8 @@ class CatController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Eliminar un registro
+        DB::table('category_cataloge')->where('id',$id)->delete();
+        return redirect()->route('categorias.listar');
     }
 }
