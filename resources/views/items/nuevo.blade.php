@@ -34,9 +34,12 @@
 						<div class="col-6">
 						    <label for="categoria">Categoria</label>
 						    <select name="categoria" id="categoria" class="form-control">
-						    	<option value="0">Selecciona</option>
-						    	<option value="1">Físico</option>
-						    	<option value="2">Digital</option>
+								<option value="0">- Seleccionar -</option>
+								@isset($cat)
+									@foreach ($cat as $c)
+										<option value="{{$c->id}}">{{$c->name}}</option>
+									@endforeach
+								@endisset
 						    </select>
 						</div>
 					</div>

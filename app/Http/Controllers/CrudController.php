@@ -26,12 +26,6 @@ class CrudController extends Controller
         return view('items.list', compact('articulos'));
     }
 
-    public function newItem()
-    {
-        // NUEVO ARTICULO 
-        return view('items.nuevo');
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -39,7 +33,11 @@ class CrudController extends Controller
      */
     public function create()
     {
-        //
+         /**
+         * nuevo articulo, retornar la lista de categorias
+         */
+        $cat = DB::table('category_cataloge')->get();
+        return view('items.nuevo', compact('cat'));
     }
 
     /**
@@ -88,7 +86,9 @@ class CrudController extends Controller
     {
         // abrir la vista para editar
         $item = DB::table('items_cataloge')->where('id',$id)->first();
-        return view('items.editar',compact('item'));
+        $cat = DB::table('category_cataloge')->get();
+        // return view('items.editar',compact('item'));
+        return view('items.editar')->with('data', compact('item','cat'));
     }
 
     /**

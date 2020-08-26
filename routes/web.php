@@ -19,7 +19,7 @@ Route::get('/', ['as' => 'home', 'uses' => 'CrudController@index']);
 
 Route::get('/listar', ['as' => 'lista', 'uses' => 'CrudController@list']);
 
-Route::get('/newItem', ['as' => 'item', 'uses' => 'CrudController@newItem']);
+Route::get('/newItem', ['as' => 'item', 'uses' => 'CrudController@create']);
 
 Route::post('itemStore', ['as' => 'items.store', 'uses' => 'CrudController@store']);
 
