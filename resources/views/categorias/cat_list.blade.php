@@ -15,7 +15,7 @@
 				<h2>Listado de Categorias</h2>
 				<br>
 				<div id="tbl">
-					<table class="table">
+					<table class="table table-hover">
 						<thead>
 							<tr>
 								<th>ID</th>

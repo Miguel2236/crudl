@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Category;
 
 class CatController extends Controller
 {
@@ -45,12 +46,7 @@ class CatController extends Controller
     public function store(Request $request)
     {
         // Guardar un registro
-        DB::table('category_cataloge')->insert([
-            "name" => $request->input('name'),
-            "description" => $request->input('description'),
-            "created_at" => Carbon::now(),
-            "updated_at" => Carbon::now(),
-        ]);
+        Category::create($request->all());
 
         return redirect()->route('categorias.listar');
     }
@@ -63,7 +59,7 @@ class CatController extends Controller
      */
     public function show($id)
     {
-        //
+        // mostrar una categoria
         $cat = DB::table('category_cataloge')->where('id',$id)->first();
         return view('categorias.show', compact('cat'));
     }

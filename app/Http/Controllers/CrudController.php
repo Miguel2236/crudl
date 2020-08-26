@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Item;
 
 class CrudController extends Controller
 {
@@ -22,7 +23,8 @@ class CrudController extends Controller
     public function list()
     {
         // ver listado
-        $articulos = DB::table('items_cataloge')->get();
+        // $articulos = DB::table('items_cataloge')->get();
+        $articulos = Item::all();
         return view('items.list', compact('articulos'));
     }
 
@@ -48,17 +50,19 @@ class CrudController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        // return 'Datos Enviadoss';
-        // return $request->all();
-        DB::table('items_cataloge')->insert([
-            "name" => $request->input('nombre'),
-            "stock" => $request->input('stock'),
-            "price" => $request->input('precio'),
-            "id_category" => $request->input('categoria'),
-            "created_at" => Carbon::now(),
-            "updated_at" => Carbon::now(),
-        ]);
+        //Guardar un nuevo articulo
+
+        $item = new Item();
+
+        $item->name = $request->input('nombre');
+
+        $item->stock = $request->input('stock');
+
+        $item->price = $request->input('precio');
+
+        $item->id_category = $request->input('categoria');
+
+        $item->save();
 
         return redirect()->route('lista');
     }
@@ -72,7 +76,8 @@ class CrudController extends Controller
     public function show($id)
     {
         //mostrar info de in producto
-        $item = DB::table('items_cataloge')->where('id',$id)->first();
+        // $item = DB::table('items_cataloge')->where('id',$id)->first();
+        $item = Item::find($id);
         return view('items.show', compact('item'));
     }
 
