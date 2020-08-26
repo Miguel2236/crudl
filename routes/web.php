@@ -17,24 +17,24 @@ Route::get('/', ['as' => 'home', 'uses' => 'CrudController@index']);
 
 // articulos
 
-Route::get('/listar', ['as' => 'lista', 'uses' => 'CrudController@list']);
+Route::get('items/listar', ['as' => 'lista', 'uses' => 'CrudController@list']);
 
-Route::get('/newItem', ['as' => 'item', 'uses' => 'CrudController@create']);
+Route::get('items/newItem', ['as' => 'item', 'uses' => 'CrudController@create']);
 
-Route::post('itemStore', ['as' => 'items.store', 'uses' => 'CrudController@store']);
+Route::post('items/store', ['as' => 'items.store', 'uses' => 'CrudController@store']);
 
-Route::get('itemInfo/{id}', ['as' => 'item.info', 'uses' => 'CrudController@show']);
+Route::get('items/{id}/info', ['as' => 'item.info', 'uses' => 'CrudController@show']);
 
-Route::get('itemEdit/{id}/editar', ['as' => 'item.edit', 'uses' => 'CrudController@edit']);
+Route::get('items/{id}/editar', ['as' => 'item.edit', 'uses' => 'CrudController@edit']);
 
 Route::put('items/{id}', ['as' => 'item.update', 'uses' => 'CrudController@update']);
 
-Route::delete('items/{id}', ['as' => 'item.destroy', 'uses' => 'CrudController@destroy']);
+Route::delete('items/{id}/delete', ['as' => 'item.destroy', 'uses' => 'CrudController@destroy']);
 
 // categorias
 Route::get('categorias', ['as' => 'categorias.listar', 'uses' => 'CatController@list']);
 
-Route::get('categorias/create', ['as' => 'categorias.crear', 'uses' => 'CatController@nuevo']);
+Route::get('categorias/create', ['as' => 'categorias.crear', 'uses' => 'CatController@create']);
 
 Route::post('categorias/catStore', ['as' => 'categorias.store', 'uses' => 'CatController@store']);
 

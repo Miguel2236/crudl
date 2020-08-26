@@ -33,12 +33,12 @@
 									<td>{{ $items->price }}</td>
 									<td>{{ $items->stock }}</td>
 									<td>
-										<a href="{{ route('item.info',['id' => $items->id]) }}" class="btn btn-info">Info</a>
-										<a href="{{ route('item.edit',['id' => $items->id]) }}" class="btn btn-success">Editar</a>
-										<form action="POST" action="{{ route('item.destroy', ['id' => $items->id]) }}">
-											{{csrf_field()}}
-											{{method_field('DELETE')}}
-											<button type="submit" class="btn btn-danger">Eliminar</button>
+										<a href="{{ route('item.info',['id' => $items->id]) }}" class="btn btn-light"><i class="fas fa-info-circle"></i></a>
+										<a href="{{ route('item.edit',['id' => $items->id]) }}" class="btn btn-light"><i class="fas fa-pencil-alt"></i></a>
+										<form method="POST" action="{{ route('item.destroy', $items->id) }}">
+											@csrf
+											@method('DELETE')
+											<button type="submit" class="btn btn-light"><i class="far fa-trash-alt"></i></button>
 										</form>
 									</td>
 								</tr>

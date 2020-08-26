@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="{{asset('assets/css/all.min.css')}}" type="text/css">
 	<link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}" type="text/css">
+	<script src="{{asset('assets/js/all.min.js')}}"></script>
 	<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 	<title>Inicio</title>
 </head>

@@ -25,12 +25,6 @@ class CatController extends Controller
         return view('categorias.cat_list', compact('catalogos'));
     }
 
-    public function nuevo()
-    {
-        // ver listado
-        return view('categorias.nuevoCatalogo');
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -38,7 +32,8 @@ class CatController extends Controller
      */
     public function create()
     {
-        //
+        // nueva categoria
+        return view('categorias.nuevoCatalogo');
     }
 
     /**

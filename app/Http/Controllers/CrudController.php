@@ -110,7 +110,6 @@ class CrudController extends Controller
         ]);
 
         return redirect()->route('lista');
-
     }
 
     /**
@@ -122,9 +121,7 @@ class CrudController extends Controller
     public function destroy($id)
     {
         // eliminar un registro
-        return "Ejemplo";
-        // DB::table('items_cataloge')->where('id',$id)->delete();
-
-        // return redirect()->route('lista');
+        DB::table('items_cataloge')->where('id',$id)->delete();
+        return redirect()->route('lista');
     }
 }
