@@ -106,13 +106,17 @@ class CrudController extends Controller
     public function update(Request $request, $id)
     {
         //actualizar
-        DB::table('items_cataloge')->where('id',$id)->update([
-            "name" => $request->input('nombre'),
-            "stock" => $request->input('stock'),
-            "price" => $request->input('precio'),
-            "id_category" => $request->input('categoria'),
-            "updated_at" => Carbon::now(),
-        ]);
+        // DB::table('items_cataloge')->where('id',$id)->update([
+        //     "name" => $request->input('nombre'),
+        //     "stock" => $request->input('stock'),
+        //     "price" => $request->input('precio'),
+        //     "id_category" => $request->input('categoria'),
+        //     "updated_at" => Carbon::now(),
+        // ]);
+
+        $item = Item::find($id);
+
+        $item->update($request->all());
 
         return redirect()->route('lista');
     }
@@ -126,7 +130,8 @@ class CrudController extends Controller
     public function destroy($id)
     {
         // eliminar un registro
-        DB::table('items_cataloge')->where('id',$id)->delete();
+        // DB::table('items_cataloge')->where('id',$id)->delete();
+        Item::findOrFail($id)->delete();
         return redirect()->route('lista');
     }
 }

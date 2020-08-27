@@ -19,12 +19,12 @@
 					{{csrf_field()}}
 					<div class="row">
 						<div class="col-6">
-						    <label for="nombre">Nombre</label>
-						    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Artículo" value="{{ $data['item']->name }}" autocomplete="off">
+						    <label for="name">Nombre</label>
+						    <input type="text" class="form-control" name="name" id="name" placeholder="Artículo" value="{{ $data['item']->name }}" autocomplete="off">
 						</div>
 						<div class="col-6">
-						    <label for="precio">Precio</label>
-						    <input type="text" class="form-control" name="precio" id="precio" placeholder="Precio" value="{{ $data['item']->price }}">
+						    <label for="price">Precio</label>
+						    <input type="text" class="form-control" name="price" id="price" placeholder="Precio" value="{{ $data['item']->price }}">
 						</div>
 					</div>
 					<div class="row">
@@ -33,8 +33,8 @@
 						    <input type="number" class="form-control" name="stock" id="stock" placeholder="Stock" value="{{ $data['item']->stock }}" autocomplete="off">
 						</div>
 						<div class="col-6">
-						    <label for="categoria">Categoria</label>
-						    <select name="categoria" id="categoria" class="form-control">
+						    <label for="id_category">Categoria</label>
+						    <select name="id_category" id="id_category" class="form-control">
 								<option value="0">- Selecciona -</option>
 								@foreach ($data['cat'] as $c)
 									<option value="{{$c->id}}" {{$data['item']->id_category == $c->id ? 'selected' : ''}}>{{$c->name}}</option>

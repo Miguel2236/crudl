@@ -87,11 +87,13 @@ class CatController extends Controller
     public function update(Request $request, $id)
     {
         // actualizar un registro
-        DB::table('category_cataloge')->where('id',$id)->update([
-            "name" => $request->input('name'),
-            "description" => $request->input('description'),
-            "updated_at" => Carbon::now(),
-        ]);
+        // DB::table('category_cataloge')->where('id',$id)->update([
+        //     "name" => $request->input('name'),
+        //     "description" => $request->input('description'),
+        //     "updated_at" => Carbon::now(),
+        // ]);
+
+        Category::findOrFail($id)->update($request->all());
 
         return redirect()->route('categorias.listar');
     }
@@ -105,7 +107,8 @@ class CatController extends Controller
     public function destroy($id)
     {
         // Eliminar un registro
-        DB::table('category_cataloge')->where('id',$id)->delete();
+        // DB::table('category_cataloge')->where('id',$id)->delete();
+        Category::findOrFail($id)->delete();
         return redirect()->route('categorias.listar');
     }
 }
